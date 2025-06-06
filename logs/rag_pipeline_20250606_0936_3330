@@ -1,0 +1,46 @@
+[2025-06-06 09:36:33,306] INFO main:197 - ------ Command line arguments -------
+[2025-06-06 09:36:33,309] INFO main:198 - step                                              : step05_generate_response
+[2025-06-06 09:36:33,309] INFO main:199 - input_filename                                    : None
+[2025-06-06 09:36:33,309] INFO main:200 - query_args                                        : What are the mandatory fields in product listing in Amazon?
+[2025-06-06 09:36:33,309] INFO main:201 - use_rag                                           : True
+[2025-06-06 09:36:33,309] INFO main:202 - ------ Config Settings -------
+[2025-06-06 09:36:33,309] INFO main:204 - cleaned_text_directory                            : data/cleaned_text
+[2025-06-06 09:36:33,309] INFO main:204 - collection_name                                   : collections
+[2025-06-06 09:36:33,310] INFO main:204 - embedding_model_name                              : sentence-transformers/all-MiniLM-L6-v2
+[2025-06-06 09:36:33,310] INFO main:204 - embeddings_directory                              : data/embeddings
+[2025-06-06 09:36:33,310] INFO main:204 - llm_api_url                                       : http://localhost:11434/api/generate
+[2025-06-06 09:36:33,310] INFO main:204 - llm_model_name                                    : llama2
+[2025-06-06 09:36:33,310] INFO main:204 - log_level                                         : debug
+[2025-06-06 09:36:33,310] INFO main:204 - raw_input_directory                               : data/raw_input
+[2025-06-06 09:36:33,310] INFO main:204 - retriever_min_score_threshold                     : 0.2
+[2025-06-06 09:36:33,310] INFO main:204 - vectordb_directory                                : data/vectordb
+[2025-06-06 09:36:33,310] INFO main:205 - ------------------------------
+[2025-06-06 09:36:33,310] INFO main:46 - Ensured directory exists: data/raw_input
+[2025-06-06 09:36:33,310] INFO main:46 - Ensured directory exists: data/cleaned_text
+[2025-06-06 09:36:33,311] INFO main:46 - Ensured directory exists: data/embeddings
+[2025-06-06 09:36:33,311] INFO main:46 - Ensured directory exists: data/vectordb
+[2025-06-06 09:36:33,311] INFO main:136 - [Step 05] Response generation started.
+[2025-06-06 09:36:33,311] INFO llm_client:18 - Initialized LLMClient: llm_api_url: http://localhost:11434/api/generate, model_name: llama2
+[2025-06-06 09:36:33,439] INFO posthog:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2025-06-06 09:36:33,604] INFO SentenceTransformer:211 - Use pytorch device_name: cpu
+[2025-06-06 09:36:33,604] INFO SentenceTransformer:219 - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[2025-06-06 09:36:36,227] INFO chromadb_retriever:22 - Initialized ChromaDBRetriever: embedding_model_name: sentence-transformers/all-MiniLM-L6-v2, collection_name: collections, score_threshold: 0.5
+[2025-06-06 09:36:36,228] INFO rag_query_processor:18 - Initialized RAGQueryProcessor: use_rag: True
+[2025-06-06 09:36:36,229] DEBUG rag_query_processor:24 - Received query: What are the mandatory fields in product listing in Amazon?
+[2025-06-06 09:36:36,229] INFO rag_query_processor:28 - --------------------------------------------------------------------------------
+[2025-06-06 09:36:36,229] INFO rag_query_processor:29 - Using RAG pipeline...
+[2025-06-06 09:36:36,390] INFO rag_query_processor:32 - *** No relevant documents found.
+[2025-06-06 09:36:36,390] INFO rag_query_processor:42 - --------------------------------------------------------------------------------
+[2025-06-06 09:36:36,390] DEBUG rag_query_processor:56 - Prompt to LLM: 
+        You are an AI assistant answering user queries using retrieved context.
+        If the context is insufficient, say 'I don't know'. 
+
+        Context:
+        No relevant context found.
+
+        Question:
+        What are the mandatory fields in product listing in Amazon?
+        
+[2025-06-06 09:37:44,383] DEBUG rag_query_processor:59 - LLM Response: I don't know. The context you provided doesn't contain sufficient information for me to answer your question. Amazon's requirements for product listings can be found on their website and may change over time. It's best to consult Amazon's policies and guidelines directly for the most up-to-date and accurate information.
+[2025-06-06 09:37:44,392] INFO main:155 - [Step 05] Response generation completed.
+[2025-06-06 09:37:44,392] INFO main:218 - RAG pipeline done

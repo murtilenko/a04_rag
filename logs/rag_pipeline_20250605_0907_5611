@@ -1,0 +1,39 @@
+[2025-06-05 09:07:56,112] INFO main:193 - ------ Command line arguments -------
+[2025-06-05 09:07:56,113] INFO main:194 - step                                              : step01_ingest
+[2025-06-05 09:07:56,113] INFO main:195 - input_filename                                    : None
+[2025-06-05 09:07:56,113] INFO main:196 - query_args                                        : None
+[2025-06-05 09:07:56,113] INFO main:197 - use_rag                                           : False
+[2025-06-05 09:07:56,113] INFO main:198 - ------ Config Settings -------
+[2025-06-05 09:07:56,113] INFO main:200 - cleaned_text_directory                            : data/cleaned_text
+[2025-06-05 09:07:56,113] INFO main:200 - collection_name                                   : collections
+[2025-06-05 09:07:56,113] INFO main:200 - embedding_model_name                              : sentence-transformers/all-MiniLM-L6-v2
+[2025-06-05 09:07:56,114] INFO main:200 - embeddings_directory                              : data/embeddings
+[2025-06-05 09:07:56,114] INFO main:200 - llm_api_url                                       : http://localhost:1234/v1/completions
+[2025-06-05 09:07:56,114] INFO main:200 - llm_model_name                                    : llama-3.2-1b-instruct
+[2025-06-05 09:07:56,114] INFO main:200 - log_level                                         : debug
+[2025-06-05 09:07:56,114] INFO main:200 - raw_input_directory                               : data/raw_input
+[2025-06-05 09:07:56,114] INFO main:200 - retriever_min_score_threshold                     : 0.5
+[2025-06-05 09:07:56,114] INFO main:200 - vectordb_directory                                : data/vectordb
+[2025-06-05 09:07:56,114] INFO main:201 - ------------------------------
+[2025-06-05 09:07:56,114] INFO main:47 - Ensured directory exists: data/raw_input
+[2025-06-05 09:07:56,115] INFO main:47 - Ensured directory exists: data/cleaned_text
+[2025-06-05 09:07:56,115] INFO main:47 - Ensured directory exists: data/embeddings
+[2025-06-05 09:07:56,115] INFO main:47 - Ensured directory exists: data/vectordb
+[2025-06-05 09:07:56,115] INFO main:52 - [Step 01] Document ingestion started.
+[2025-06-05 09:07:56,368] DEBUG _api:172 - Attempting to acquire lock 140404815708016 on /Users/muratcan.bayrakci/.cache/huggingface/hub/.locks/models--sentence-transformers--all-MiniLM-L6-v2/c79f2b6a0cea6f4b564fed1938984bace9d30ff0.lock
+[2025-06-05 09:07:56,368] DEBUG _api:176 - Lock 140404815708016 acquired on /Users/muratcan.bayrakci/.cache/huggingface/hub/.locks/models--sentence-transformers--all-MiniLM-L6-v2/c79f2b6a0cea6f4b564fed1938984bace9d30ff0.lock
+[2025-06-05 09:07:56,465] DEBUG _api:209 - Attempting to release lock 140404815708016 on /Users/muratcan.bayrakci/.cache/huggingface/hub/.locks/models--sentence-transformers--all-MiniLM-L6-v2/c79f2b6a0cea6f4b564fed1938984bace9d30ff0.lock
+[2025-06-05 09:07:56,466] DEBUG _api:212 - Lock 140404815708016 released on /Users/muratcan.bayrakci/.cache/huggingface/hub/.locks/models--sentence-transformers--all-MiniLM-L6-v2/c79f2b6a0cea6f4b564fed1938984bace9d30ff0.lock
+[2025-06-05 09:07:56,574] DEBUG _api:172 - Attempting to acquire lock 140404815703888 on /Users/muratcan.bayrakci/.cache/huggingface/hub/.locks/models--sentence-transformers--all-MiniLM-L6-v2/fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+[2025-06-05 09:07:56,575] DEBUG _api:176 - Lock 140404815703888 acquired on /Users/muratcan.bayrakci/.cache/huggingface/hub/.locks/models--sentence-transformers--all-MiniLM-L6-v2/fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+[2025-06-05 09:07:56,688] DEBUG _api:209 - Attempting to release lock 140404815703888 on /Users/muratcan.bayrakci/.cache/huggingface/hub/.locks/models--sentence-transformers--all-MiniLM-L6-v2/fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+[2025-06-05 09:07:56,689] DEBUG _api:212 - Lock 140404815703888 released on /Users/muratcan.bayrakci/.cache/huggingface/hub/.locks/models--sentence-transformers--all-MiniLM-L6-v2/fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+[2025-06-05 09:07:56,736] DEBUG _api:172 - Attempting to acquire lock 140404815707584 on /Users/muratcan.bayrakci/.cache/huggingface/hub/.locks/models--sentence-transformers--all-MiniLM-L6-v2/cb202bfe2e3c98645018a6d12f182a434c9d3e02.lock
+[2025-06-05 09:07:56,737] DEBUG _api:176 - Lock 140404815707584 acquired on /Users/muratcan.bayrakci/.cache/huggingface/hub/.locks/models--sentence-transformers--all-MiniLM-L6-v2/cb202bfe2e3c98645018a6d12f182a434c9d3e02.lock
+[2025-06-05 09:07:56,861] DEBUG _api:209 - Attempting to release lock 140404815707584 on /Users/muratcan.bayrakci/.cache/huggingface/hub/.locks/models--sentence-transformers--all-MiniLM-L6-v2/cb202bfe2e3c98645018a6d12f182a434c9d3e02.lock
+[2025-06-05 09:07:56,861] DEBUG _api:212 - Lock 140404815707584 released on /Users/muratcan.bayrakci/.cache/huggingface/hub/.locks/models--sentence-transformers--all-MiniLM-L6-v2/cb202bfe2e3c98645018a6d12f182a434c9d3e02.lock
+[2025-06-05 09:07:56,964] DEBUG _api:172 - Attempting to acquire lock 140404815705136 on /Users/muratcan.bayrakci/.cache/huggingface/hub/.locks/models--sentence-transformers--all-MiniLM-L6-v2/e7b0375001f109a6b8873d756ad4f7bbb15fbaa5.lock
+[2025-06-05 09:07:56,964] DEBUG _api:176 - Lock 140404815705136 acquired on /Users/muratcan.bayrakci/.cache/huggingface/hub/.locks/models--sentence-transformers--all-MiniLM-L6-v2/e7b0375001f109a6b8873d756ad4f7bbb15fbaa5.lock
+[2025-06-05 09:07:57,012] DEBUG _api:209 - Attempting to release lock 140404815705136 on /Users/muratcan.bayrakci/.cache/huggingface/hub/.locks/models--sentence-transformers--all-MiniLM-L6-v2/e7b0375001f109a6b8873d756ad4f7bbb15fbaa5.lock
+[2025-06-05 09:07:57,012] DEBUG _api:212 - Lock 140404815705136 released on /Users/muratcan.bayrakci/.cache/huggingface/hub/.locks/models--sentence-transformers--all-MiniLM-L6-v2/e7b0375001f109a6b8873d756ad4f7bbb15fbaa5.lock
+[2025-06-05 09:07:57,138] INFO document_ingestor:27 - Initialized DocumentIngestor: input_dir: data/raw_inputoutput_dir: data/cleaned_text, embedding_model_name: sentence-transformers/all-MiniLM-L6-v2

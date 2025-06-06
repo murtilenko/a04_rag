@@ -1,0 +1,30 @@
+[2025-06-05 14:38:46,979] INFO main:197 - ------ Command line arguments -------
+[2025-06-05 14:38:46,979] INFO main:198 - step                                              : step04_retrieve_chunks
+[2025-06-05 14:38:46,979] INFO main:199 - input_filename                                    : None
+[2025-06-05 14:38:46,979] INFO main:200 - query_args                                        : What are the mandatory fields in product listing in Amazon?
+[2025-06-05 14:38:46,979] INFO main:201 - use_rag                                           : True
+[2025-06-05 14:38:46,979] INFO main:202 - ------ Config Settings -------
+[2025-06-05 14:38:46,979] INFO main:204 - cleaned_text_directory                            : data/cleaned_text
+[2025-06-05 14:38:46,979] INFO main:204 - collection_name                                   : collections
+[2025-06-05 14:38:46,979] INFO main:204 - embedding_model_name                              : sentence-transformers/all-MiniLM-L6-v2
+[2025-06-05 14:38:46,979] INFO main:204 - embeddings_directory                              : data/embeddings
+[2025-06-05 14:38:46,979] INFO main:204 - llm_api_url                                       : http://localhost:11434/api/generate
+[2025-06-05 14:38:46,979] INFO main:204 - llm_model_name                                    : llama2
+[2025-06-05 14:38:46,980] INFO main:204 - log_level                                         : debug
+[2025-06-05 14:38:46,980] INFO main:204 - raw_input_directory                               : data/raw_input
+[2025-06-05 14:38:46,980] INFO main:204 - retriever_min_score_threshold                     : 0.1
+[2025-06-05 14:38:46,980] INFO main:204 - vectordb_directory                                : data/vectordb
+[2025-06-05 14:38:46,980] INFO main:205 - ------------------------------
+[2025-06-05 14:38:46,980] INFO main:46 - Ensured directory exists: data/raw_input
+[2025-06-05 14:38:46,980] INFO main:46 - Ensured directory exists: data/cleaned_text
+[2025-06-05 14:38:46,980] INFO main:46 - Ensured directory exists: data/embeddings
+[2025-06-05 14:38:46,980] INFO main:46 - Ensured directory exists: data/vectordb
+[2025-06-05 14:38:46,980] INFO main:103 - [Step 04] Retrieval started.
+[2025-06-05 14:38:46,981] INFO main:105 - Query arguments: What are the mandatory fields in product listing in Amazon?
+[2025-06-05 14:38:47,021] INFO posthog:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2025-06-05 14:38:47,181] INFO SentenceTransformer:211 - Use pytorch device_name: cpu
+[2025-06-05 14:38:47,181] INFO SentenceTransformer:219 - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[2025-06-05 14:38:48,780] INFO chromadb_retriever:22 - Initialized ChromaDBRetriever: embedding_model_name: sentence-transformers/all-MiniLM-L6-v2, collection_name: collections, score_threshold: 0.1
+[2025-06-05 14:38:49,006] INFO main:115 - *** No relevant documents found.
+[2025-06-05 14:38:49,006] INFO main:131 - [Step 04] Retrieval completed.
+[2025-06-05 14:38:49,006] INFO main:218 - RAG pipeline done

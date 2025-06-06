@@ -1,0 +1,25 @@
+[2025-06-06 17:12:00,261] INFO main:197 - ------ Command line arguments -------
+[2025-06-06 17:12:00,261] INFO main:198 - step                                              : step03_store_vectors
+[2025-06-06 17:12:00,261] INFO main:199 - input_filename                                    : None
+[2025-06-06 17:12:00,261] INFO main:200 - query_args                                        : None
+[2025-06-06 17:12:00,261] INFO main:201 - use_rag                                           : False
+[2025-06-06 17:12:00,261] INFO main:202 - ------ Config Settings -------
+[2025-06-06 17:12:00,262] INFO main:204 - cleaned_text_directory                            : data/cleaned_text
+[2025-06-06 17:12:00,262] INFO main:204 - collection_name                                   : collections
+[2025-06-06 17:12:00,262] INFO main:204 - embedding_model_name                              : sentence-transformers/all-MiniLM-L6-v2
+[2025-06-06 17:12:00,262] INFO main:204 - embeddings_directory                              : data/embeddings
+[2025-06-06 17:12:00,262] INFO main:204 - llm_api_url                                       : http://localhost:11434/api/generate
+[2025-06-06 17:12:00,262] INFO main:204 - llm_model_name                                    : llama2
+[2025-06-06 17:12:00,262] INFO main:204 - log_level                                         : debug
+[2025-06-06 17:12:00,262] INFO main:204 - raw_input_directory                               : data/raw_input
+[2025-06-06 17:12:00,262] INFO main:204 - retriever_min_score_threshold                     : 0.2
+[2025-06-06 17:12:00,263] INFO main:204 - vectordb_directory                                : data/vectordb
+[2025-06-06 17:12:00,263] INFO main:205 - ------------------------------
+[2025-06-06 17:12:00,263] INFO main:46 - Ensured directory exists: data/raw_input
+[2025-06-06 17:12:00,263] INFO main:46 - Ensured directory exists: data/cleaned_text
+[2025-06-06 17:12:00,263] INFO main:46 - Ensured directory exists: data/embeddings
+[2025-06-06 17:12:00,263] INFO main:46 - Ensured directory exists: data/vectordb
+[2025-06-06 17:12:00,263] INFO main:83 - [Step 03] Vector storage started.
+[2025-06-06 17:12:00,263] INFO main:87 - deleting existing vectordb
+[2025-06-06 17:12:00,265] INFO utilities:10 - Directory 'data/vectordb'  deleted.
+[2025-06-06 17:12:00,311] INFO posthog:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.

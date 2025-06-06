@@ -1,0 +1,98 @@
+[2025-06-05 12:30:52,140] INFO main:197 - ------ Command line arguments -------
+[2025-06-05 12:30:52,140] INFO main:198 - step                                              : step02_generate_embeddings
+[2025-06-05 12:30:52,140] INFO main:199 - input_filename                                    : all
+[2025-06-05 12:30:52,140] INFO main:200 - query_args                                        : None
+[2025-06-05 12:30:52,140] INFO main:201 - use_rag                                           : False
+[2025-06-05 12:30:52,140] INFO main:202 - ------ Config Settings -------
+[2025-06-05 12:30:52,140] INFO main:204 - cleaned_text_directory                            : data/cleaned_text
+[2025-06-05 12:30:52,140] INFO main:204 - collection_name                                   : collections
+[2025-06-05 12:30:52,140] INFO main:204 - embedding_model_name                              : sentence-transformers/all-MiniLM-L6-v2
+[2025-06-05 12:30:52,140] INFO main:204 - embeddings_directory                              : data/embeddings
+[2025-06-05 12:30:52,140] INFO main:204 - llm_api_url                                       : http://localhost:1234/v1/completions
+[2025-06-05 12:30:52,141] INFO main:204 - llm_model_name                                    : llama-3.2-1b-instruct
+[2025-06-05 12:30:52,141] INFO main:204 - log_level                                         : debug
+[2025-06-05 12:30:52,141] INFO main:204 - raw_input_directory                               : data/raw_input
+[2025-06-05 12:30:52,141] INFO main:204 - retriever_min_score_threshold                     : 0.5
+[2025-06-05 12:30:52,141] INFO main:204 - vectordb_directory                                : data/vectordb
+[2025-06-05 12:30:52,141] INFO main:205 - ------------------------------
+[2025-06-05 12:30:52,141] INFO main:46 - Ensured directory exists: data/raw_input
+[2025-06-05 12:30:52,141] INFO main:46 - Ensured directory exists: data/cleaned_text
+[2025-06-05 12:30:52,141] INFO main:46 - Ensured directory exists: data/embeddings
+[2025-06-05 12:30:52,141] INFO main:46 - Ensured directory exists: data/vectordb
+[2025-06-05 12:30:52,141] INFO main:69 - [Step 02] Embedding generation started.
+[2025-06-05 12:30:53,730] INFO embedding_preparer:39 - Processing: data/cleaned_text/Kate Shoup_ Kate Gatski - Starting an Etsy Business for Dummies-For Dummies (2023)_cleaned.txt
+[2025-06-05 12:31:17,342] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Kate Shoup_ Kate Gatski - Starting an Etsy Business for Dummies-For Dummies (2023)_cleaned_embeddings.json
+[2025-06-05 12:31:17,345] INFO embedding_preparer:39 - Processing: data/cleaned_text/How 4 Successful Shops Use Discounting Effectively in Their Shops_cleaned.txt
+[2025-06-05 12:31:17,637] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/How 4 Successful Shops Use Discounting Effectively in Their Shops_cleaned_embeddings.json
+[2025-06-05 12:31:17,637] INFO embedding_preparer:39 - Processing: data/cleaned_text/Christopher Kent - Etsy Marketing_ Selling on Etsy with SEO, Facebook, Pinterest, Instagram, and Other Social Medias-Novelty Publishing LLC (2021)_cleaned.txt
+[2025-06-05 12:31:24,987] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Christopher Kent - Etsy Marketing_ Selling on Etsy with SEO, Facebook, Pinterest, Instagram, and Other Social Medias-Novelty Publishing LLC (2021)_cleaned_embeddings.json
+[2025-06-05 12:31:24,987] INFO embedding_preparer:39 - Processing: data/cleaned_text/Resources and Funding Opportunities for Sellers in the US_cleaned.txt
+[2025-06-05 12:31:25,265] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Resources and Funding Opportunities for Sellers in the US_cleaned_embeddings.json
+[2025-06-05 12:31:25,265] INFO embedding_preparer:39 - Processing: data/cleaned_text/The Essentials of Marketing Your Business_cleaned.txt
+[2025-06-05 12:31:25,757] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/The Essentials of Marketing Your Business_cleaned_embeddings.json
+[2025-06-05 12:31:25,757] INFO embedding_preparer:39 - Processing: data/cleaned_text/Tips for Getting Featured on Etsy_cleaned.txt
+[2025-06-05 12:31:26,485] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Tips for Getting Featured on Etsy_cleaned_embeddings.json
+[2025-06-05 12:31:26,485] INFO embedding_preparer:39 - Processing: data/cleaned_text/Amazon-FBA-Beginner-Guide_cleaned.txt
+[2025-06-05 12:31:27,356] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Amazon-FBA-Beginner-Guide_cleaned_embeddings.json
+[2025-06-05 12:31:27,356] INFO embedding_preparer:39 - Processing: data/cleaned_text/GuidetoSellinginPerson_cleaned.txt
+[2025-06-05 12:31:28,158] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/GuidetoSellinginPerson_cleaned_embeddings.json
+[2025-06-05 12:31:28,158] INFO embedding_preparer:39 - Processing: data/cleaned_text/7 Common Questions About Etsy Ads_cleaned.txt
+[2025-06-05 12:31:28,472] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/7 Common Questions About Etsy Ads_cleaned_embeddings.json
+[2025-06-05 12:31:28,472] INFO embedding_preparer:39 - Processing: data/cleaned_text/How to Get 5-Star Reviews_cleaned.txt
+[2025-06-05 12:31:29,079] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/How to Get 5-Star Reviews_cleaned_embeddings.json
+[2025-06-05 12:31:29,079] INFO embedding_preparer:39 - Processing: data/cleaned_text/Understanding Your Advertising Performance_cleaned.txt
+[2025-06-05 12:31:29,506] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Understanding Your Advertising Performance_cleaned_embeddings.json
+[2025-06-05 12:31:29,506] INFO embedding_preparer:39 - Processing: data/cleaned_text/The Ultimate Guide to Product Photography_cleaned.txt
+[2025-06-05 12:31:29,704] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/The Ultimate Guide to Product Photography_cleaned_embeddings.json
+[2025-06-05 12:31:29,704] INFO embedding_preparer:39 - Processing: data/cleaned_text/Christopher Matthew Spencer - Ultimate Guide to eBay for Business-Entrepreneur Press (2021)_cleaned.txt
+[2025-06-05 12:31:57,609] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Christopher Matthew Spencer - Ultimate Guide to eBay for Business-Entrepreneur Press (2021)_cleaned_embeddings.json
+[2025-06-05 12:31:57,611] INFO embedding_preparer:39 - Processing: data/cleaned_text/Checklist_ Optimizing Your Listings for Gifting on Etsy_cleaned.txt
+[2025-06-05 12:31:58,235] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Checklist_ Optimizing Your Listings for Gifting on Etsy_cleaned_embeddings.json
+[2025-06-05 12:31:58,235] INFO embedding_preparer:39 - Processing: data/cleaned_text/Dos and Don'ts of Communicating With Customers_cleaned.txt
+[2025-06-05 12:31:58,911] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Dos and Don'ts of Communicating With Customers_cleaned_embeddings.json
+[2025-06-05 12:31:58,911] INFO embedding_preparer:39 - Processing: data/cleaned_text/Keywords 101_ Everything You Need to Know_cleaned.txt
+[2025-06-05 12:32:00,079] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Keywords 101_ Everything You Need to Know_cleaned_embeddings.json
+[2025-06-05 12:32:00,080] INFO embedding_preparer:39 - Processing: data/cleaned_text/Turnerwood, Lincoln - How to Use an Advanced Magic Formula to Find the Best Selling Products_ Ebay Secrets to Improve Your Weekly Sales (2024)_cleaned.txt
+[2025-06-05 12:32:03,553] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Turnerwood, Lincoln - How to Use an Advanced Magic Formula to Find the Best Selling Products_ Ebay Secrets to Improve Your Weekly Sales (2024)_cleaned_embeddings.json
+[2025-06-05 12:32:03,553] INFO embedding_preparer:39 - Processing: data/cleaned_text/How to Get the Most Out of Your Shop Stats_cleaned.txt
+[2025-06-05 12:32:04,004] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/How to Get the Most Out of Your Shop Stats_cleaned_embeddings.json
+[2025-06-05 12:32:04,005] INFO embedding_preparer:39 - Processing: data/cleaned_text/The Essentials of Online Advertising_cleaned.txt
+[2025-06-05 12:32:04,703] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/The Essentials of Online Advertising_cleaned_embeddings.json
+[2025-06-05 12:32:04,703] INFO embedding_preparer:39 - Processing: data/cleaned_text/Tips for Understanding Your Profits and Planning for Growth_cleaned.txt
+[2025-06-05 12:32:05,541] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Tips for Understanding Your Profits and Planning for Growth_cleaned_embeddings.json
+[2025-06-05 12:32:05,542] INFO embedding_preparer:39 - Processing: data/cleaned_text/AGS_Account_Registration_guide_18-2-2022_cleaned.txt
+[2025-06-05 12:32:07,024] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/AGS_Account_Registration_guide_18-2-2022_cleaned_embeddings.json
+[2025-06-05 12:32:07,025] INFO embedding_preparer:39 - Processing: data/cleaned_text/Case Study_ Fine-Tuning Your Etsy Ads Strategy_cleaned.txt
+[2025-06-05 12:32:07,698] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Case Study_ Fine-Tuning Your Etsy Ads Strategy_cleaned_embeddings.json
+[2025-06-05 12:32:07,698] INFO embedding_preparer:39 - Processing: data/cleaned_text/Tools for Growing Your Business—and How to Fit Them Into Your Pricing Strategy_cleaned.txt
+[2025-06-05 12:32:09,139] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Tools for Growing Your Business—and How to Fit Them Into Your Pricing Strategy_cleaned_embeddings.json
+[2025-06-05 12:32:09,140] INFO embedding_preparer:39 - Processing: data/cleaned_text/How-to-Sell-on-Amazon-FBA-Jungle-Scout-2022 (1)_cleaned.txt
+[2025-06-05 12:32:15,778] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/How-to-Sell-on-Amazon-FBA-Jungle-Scout-2022 (1)_cleaned_embeddings.json
+[2025-06-05 12:32:15,778] INFO embedding_preparer:39 - Processing: data/cleaned_text/Checklist_ Get Your Listings Ready to Advertise_cleaned.txt
+[2025-06-05 12:32:16,109] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Checklist_ Get Your Listings Ready to Advertise_cleaned_embeddings.json
+[2025-06-05 12:32:16,109] INFO embedding_preparer:39 - Processing: data/cleaned_text/Tomer Rabinovich - Ride the Amazon Wave_ The Pro Seller's Guide to Private Label Success-Lioncrest Publishing (2022)_cleaned.txt
+[2025-06-05 12:32:46,239] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Tomer Rabinovich - Ride the Amazon Wave_ The Pro Seller's Guide to Private Label Success-Lioncrest Publishing (2022)_cleaned_embeddings.json
+[2025-06-05 12:32:46,241] INFO embedding_preparer:39 - Processing: data/cleaned_text/Tips for Taking Engaging Social Media Photos_cleaned.txt
+[2025-06-05 12:32:46,459] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Tips for Taking Engaging Social Media Photos_cleaned_embeddings.json
+[2025-06-05 12:32:46,459] INFO embedding_preparer:39 - Processing: data/cleaned_text/5 Ways to Optimize Your Listings for Pinterest_cleaned.txt
+[2025-06-05 12:32:46,743] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/5 Ways to Optimize Your Listings for Pinterest_cleaned_embeddings.json
+[2025-06-05 12:32:46,743] INFO embedding_preparer:39 - Processing: data/cleaned_text/3 Strategies for Deciding Which Listings to Promote_cleaned.txt
+[2025-06-05 12:32:47,048] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/3 Strategies for Deciding Which Listings to Promote_cleaned_embeddings.json
+[2025-06-05 12:32:47,048] INFO embedding_preparer:39 - Processing: data/cleaned_text/Creating Listings That Convert_cleaned.txt
+[2025-06-05 12:32:47,674] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Creating Listings That Convert_cleaned_embeddings.json
+[2025-06-05 12:32:47,674] INFO embedding_preparer:39 - Processing: data/cleaned_text/4 Policy Best Practices When Listing Items on Etsy_cleaned.txt
+[2025-06-05 12:32:48,442] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/4 Policy Best Practices When Listing Items on Etsy_cleaned_embeddings.json
+[2025-06-05 12:32:48,442] INFO embedding_preparer:39 - Processing: data/cleaned_text/5 Common Mistakes New Etsy Sellers Make_cleaned.txt
+[2025-06-05 12:32:48,878] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/5 Common Mistakes New Etsy Sellers Make_cleaned_embeddings.json
+[2025-06-05 12:32:48,878] INFO embedding_preparer:39 - Processing: data/cleaned_text/Getting Started With Etsy Ads_cleaned.txt
+[2025-06-05 12:32:49,240] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Getting Started With Etsy Ads_cleaned_embeddings.json
+[2025-06-05 12:32:49,240] INFO embedding_preparer:39 - Processing: data/cleaned_text/Top Tips for Choosing Your Etsy Shop Name_cleaned.txt
+[2025-06-05 12:32:49,955] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Top Tips for Choosing Your Etsy Shop Name_cleaned_embeddings.json
+[2025-06-05 12:32:49,956] INFO embedding_preparer:39 - Processing: data/cleaned_text/Trevor Ginn - How to Grow Your eCommerce Business_ The Essential Guide to Building a Successful Multi-Channel Online Business with Google, Shopify, eBay, Amazon & Facebook-Vendlab Publishing (202_cleaned.txt
+[2025-06-05 12:33:07,440] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/Trevor Ginn - How to Grow Your eCommerce Business_ The Essential Guide to Building a Successful Multi-Channel Online Business with Google, Shopify, eBay, Amazon & Facebook-Vendlab Publishing (202_cleaned_embeddings.json
+[2025-06-05 12:33:07,441] INFO embedding_preparer:39 - Processing: data/cleaned_text/guide_to_selling_6_18_19 (1)_cleaned.txt
+[2025-06-05 12:33:08,083] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/guide_to_selling_6_18_19 (1)_cleaned_embeddings.json
+[2025-06-05 12:33:08,083] INFO embedding_preparer:39 - Processing: data/cleaned_text/8 Ways to Streamline Your Shop Finances_cleaned.txt
+[2025-06-05 12:33:08,588] INFO embedding_preparer:79 - Saved embeddings to data/embeddings/8 Ways to Streamline Your Shop Finances_cleaned_embeddings.json
+[2025-06-05 12:33:08,592] INFO main:78 - [Step 02] Embedding generation completed.
+[2025-06-05 12:33:08,614] INFO main:218 - RAG pipeline done

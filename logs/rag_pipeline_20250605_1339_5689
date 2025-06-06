@@ -1,0 +1,50 @@
+[2025-06-05 13:39:56,892] INFO main:197 - ------ Command line arguments -------
+[2025-06-05 13:39:56,893] INFO main:198 - step                                              : step05_generate_response
+[2025-06-05 13:39:56,893] INFO main:199 - input_filename                                    : None
+[2025-06-05 13:39:56,893] INFO main:200 - query_args                                        : is Ebay profitable?
+[2025-06-05 13:39:56,893] INFO main:201 - use_rag                                           : True
+[2025-06-05 13:39:56,893] INFO main:202 - ------ Config Settings -------
+[2025-06-05 13:39:56,893] INFO main:204 - cleaned_text_directory                            : data/cleaned_text
+[2025-06-05 13:39:56,893] INFO main:204 - collection_name                                   : collections
+[2025-06-05 13:39:56,893] INFO main:204 - embedding_model_name                              : sentence-transformers/all-MiniLM-L6-v2
+[2025-06-05 13:39:56,893] INFO main:204 - embeddings_directory                              : data/embeddings
+[2025-06-05 13:39:56,893] INFO main:204 - llm_api_url                                       : http://localhost:11434/api/generate
+[2025-06-05 13:39:56,893] INFO main:204 - llm_model_name                                    : llama2
+[2025-06-05 13:39:56,894] INFO main:204 - log_level                                         : debug
+[2025-06-05 13:39:56,894] INFO main:204 - raw_input_directory                               : data/raw_input
+[2025-06-05 13:39:56,894] INFO main:204 - retriever_min_score_threshold                     : 0.5
+[2025-06-05 13:39:56,894] INFO main:204 - vectordb_directory                                : data/vectordb
+[2025-06-05 13:39:56,894] INFO main:205 - ------------------------------
+[2025-06-05 13:39:56,894] INFO main:46 - Ensured directory exists: data/raw_input
+[2025-06-05 13:39:56,894] INFO main:46 - Ensured directory exists: data/cleaned_text
+[2025-06-05 13:39:56,894] INFO main:46 - Ensured directory exists: data/embeddings
+[2025-06-05 13:39:56,894] INFO main:46 - Ensured directory exists: data/vectordb
+[2025-06-05 13:39:56,895] INFO main:136 - [Step 05] Response generation started.
+[2025-06-05 13:39:56,895] INFO llm_client:18 - Initialized LLMClient: llm_api_url: http://localhost:11434/api/generate, model_name: llama2
+[2025-06-05 13:39:56,935] INFO posthog:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2025-06-05 13:39:57,087] INFO SentenceTransformer:211 - Use pytorch device_name: cpu
+[2025-06-05 13:39:57,087] INFO SentenceTransformer:219 - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[2025-06-05 13:39:59,172] INFO chromadb_retriever:22 - Initialized ChromaDBRetriever: embedding_model_name: sentence-transformers/all-MiniLM-L6-v2, collection_name: collections, score_threshold: 0.5
+[2025-06-05 13:39:59,173] INFO rag_query_processor:18 - Initialized RAGQueryProcessor: use_rag: True
+[2025-06-05 13:39:59,173] DEBUG rag_query_processor:24 - Received query: is Ebay profitable?
+[2025-06-05 13:39:59,173] INFO rag_query_processor:28 - --------------------------------------------------------------------------------
+[2025-06-05 13:39:59,173] INFO rag_query_processor:29 - Using RAG pipeline...
+[2025-06-05 13:39:59,383] INFO rag_query_processor:32 - *** No relevant documents found.
+[2025-06-05 13:39:59,383] INFO rag_query_processor:42 - --------------------------------------------------------------------------------
+[2025-06-05 13:39:59,383] DEBUG rag_query_processor:56 - Prompt to LLM: 
+        You are an AI assistant answering user queries using retrieved context.
+        If the context is insufficient, say 'I don't know'. 
+
+        Context:
+        No relevant context found.
+
+        Question:
+        is Ebay profitable?
+        
+[2025-06-05 13:41:39,523] DEBUG rag_query_processor:59 - LLM Response: I apologize, but I don't have sufficient context to provide a definitive answer to your question about eBay's profitability. Without access to up-to-date financial information or analysis, I cannot make an informed assessment of the company's current financial situation.
+
+eBay is a publicly traded company and releases some financial information, but it doesn't provide a detailed breakdown of its profits and losses. Additionally, the online marketplace space is highly competitive, and eBay faces challenges from other platforms like Amazon, Etsy, and others.
+
+Therefore, I cannot give you a clear answer to your question without more context or information about eBay's current financial performance. If you have any additional details or updates on the company's financials, please feel free to share them with me.
+[2025-06-05 13:41:39,547] INFO main:155 - [Step 05] Response generation completed.
+[2025-06-05 13:41:39,554] INFO main:218 - RAG pipeline done

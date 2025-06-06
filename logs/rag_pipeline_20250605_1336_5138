@@ -1,0 +1,47 @@
+[2025-06-05 13:36:51,383] INFO main:197 - ------ Command line arguments -------
+[2025-06-05 13:36:51,383] INFO main:198 - step                                              : step05_generate_response
+[2025-06-05 13:36:51,383] INFO main:199 - input_filename                                    : None
+[2025-06-05 13:36:51,383] INFO main:200 - query_args                                        : is Ebay profitable?
+[2025-06-05 13:36:51,384] INFO main:201 - use_rag                                           : True
+[2025-06-05 13:36:51,384] INFO main:202 - ------ Config Settings -------
+[2025-06-05 13:36:51,384] INFO main:204 - cleaned_text_directory                            : data/cleaned_text
+[2025-06-05 13:36:51,384] INFO main:204 - collection_name                                   : collections
+[2025-06-05 13:36:51,384] INFO main:204 - embedding_model_name                              : sentence-transformers/all-MiniLM-L6-v2
+[2025-06-05 13:36:51,384] INFO main:204 - embeddings_directory                              : data/embeddings
+[2025-06-05 13:36:51,384] INFO main:204 - llm_api_url                                       : http://localhost:1234/api/generate
+[2025-06-05 13:36:51,384] INFO main:204 - llm_model_name                                    : llama2
+[2025-06-05 13:36:51,384] INFO main:204 - log_level                                         : debug
+[2025-06-05 13:36:51,384] INFO main:204 - raw_input_directory                               : data/raw_input
+[2025-06-05 13:36:51,384] INFO main:204 - retriever_min_score_threshold                     : 0.5
+[2025-06-05 13:36:51,384] INFO main:204 - vectordb_directory                                : data/vectordb
+[2025-06-05 13:36:51,384] INFO main:205 - ------------------------------
+[2025-06-05 13:36:51,384] INFO main:46 - Ensured directory exists: data/raw_input
+[2025-06-05 13:36:51,385] INFO main:46 - Ensured directory exists: data/cleaned_text
+[2025-06-05 13:36:51,385] INFO main:46 - Ensured directory exists: data/embeddings
+[2025-06-05 13:36:51,385] INFO main:46 - Ensured directory exists: data/vectordb
+[2025-06-05 13:36:51,385] INFO main:136 - [Step 05] Response generation started.
+[2025-06-05 13:36:51,385] INFO llm_client:18 - Initialized LLMClient: llm_api_url: http://localhost:1234/api/generate, model_name: llama2
+[2025-06-05 13:36:51,416] INFO posthog:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2025-06-05 13:36:51,558] INFO SentenceTransformer:211 - Use pytorch device_name: cpu
+[2025-06-05 13:36:51,558] INFO SentenceTransformer:219 - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[2025-06-05 13:36:53,716] INFO chromadb_retriever:22 - Initialized ChromaDBRetriever: embedding_model_name: sentence-transformers/all-MiniLM-L6-v2, collection_name: collections, score_threshold: 0.5
+[2025-06-05 13:36:53,716] INFO rag_query_processor:18 - Initialized RAGQueryProcessor: use_rag: True
+[2025-06-05 13:36:53,716] DEBUG rag_query_processor:24 - Received query: is Ebay profitable?
+[2025-06-05 13:36:53,716] INFO rag_query_processor:28 - --------------------------------------------------------------------------------
+[2025-06-05 13:36:53,716] INFO rag_query_processor:29 - Using RAG pipeline...
+[2025-06-05 13:36:53,942] INFO rag_query_processor:32 - *** No relevant documents found.
+[2025-06-05 13:36:53,942] INFO rag_query_processor:42 - --------------------------------------------------------------------------------
+[2025-06-05 13:36:53,942] DEBUG rag_query_processor:56 - Prompt to LLM: 
+        You are an AI assistant answering user queries using retrieved context.
+        If the context is insufficient, say 'I don't know'. 
+
+        Context:
+        No relevant context found.
+
+        Question:
+        is Ebay profitable?
+        
+[2025-06-05 13:36:53,945] ERROR llm_client:33 - Error querying LLM: HTTPConnectionPool(host='localhost', port=1234): Max retries exceeded with url: /api/generate (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f786bc7f910>: Failed to establish a new connection: [Errno 61] Connection refused'))
+[2025-06-05 13:36:53,946] DEBUG rag_query_processor:59 - LLM Response: Error: Could not connect to the LLM.
+[2025-06-05 13:36:53,946] INFO main:155 - [Step 05] Response generation completed.
+[2025-06-05 13:36:53,946] INFO main:218 - RAG pipeline done
