@@ -3,7 +3,7 @@ import logging
 from pathlib import Path
 from transformers import AutoTokenizer, AutoModel
 import torch
-
+import numpy as np
 
 class EmbeddingPreparer:
     def __init__(self,
@@ -25,16 +25,22 @@ class EmbeddingPreparer:
         # Load model and tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(self.embedding_model_name)
         self.model = AutoModel.from_pretrained(self.embedding_model_name).to(self.device)
+        self.model.eval()  # ✅ Ensure model is in inference mode
 
     def process_files(self):
         save_log_level = logging.getLogger().getEffectiveLevel()
         logging.getLogger().setLevel(logging.INFO)
 
         for file_path in self.file_list:
-            file_path = Path(self.input_dir/file_path)
+            if not file_path:
+                self.logger.warning("Empty filename skipped.")
+                continue
+
+            file_path = Path(self.input_dir / file_path)
             if not file_path.exists():
                 self.logger.warning(f"File not found: {file_path}")
                 continue
+
             try:
                 self.logger.info(f"Processing: {file_path}")
                 text = self._read_file(file_path)
@@ -63,11 +69,20 @@ class EmbeddingPreparer:
             inputs = self.tokenizer(chunk_text, return_tensors="pt", truncation=True, padding=True, max_length=512).to(self.device)
             with torch.no_grad():
                 outputs = self.model(**inputs)
-            emb = outputs.last_hidden_state.mean(dim=1).squeeze().cpu().numpy().tolist()
+
+            emb = outputs.last_hidden_state.mean(dim=1).squeeze().cpu().numpy()
+
+            # ✅ Normalize the vector
+            norm = np.linalg.norm(emb)
+            if norm != 0:
+                emb = emb / norm
+            else:
+                self.logger.warning("Generated a zero vector — skipping normalization.")
+
             embeddings.append({
                 "chunk_start": i,
                 "chunk_text": chunk_text,
-                "embedding": emb
+                "embedding": emb.tolist()
             })
 
         return embeddings

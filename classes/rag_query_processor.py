@@ -1,9 +1,6 @@
 from .llm_client import LLMClient
 from .chromadb_retriever import ChromaDBRetriever
 import logging
-# from pathlib import Path
-# from typing import List
-# import json
 
 class RAGQueryProcessor:
 
@@ -27,37 +24,37 @@ class RAGQueryProcessor:
         if self.use_rag:
             self.logger.info("-"*80)
             self.logger.info("Using RAG pipeline...")
-            retrieved_docs = self.retriever.query(query_text)
-            if not retrieved_docs:
-                logging.info("*** No relevant documents found.")
+            retrieved_chunks = self.retriever.query(query_text)
+
+            if not retrieved_chunks:
+                self.logger.info("*** No relevant context found.")
+                context = "No relevant context found."
             else:
-                result = retrieved_docs[0]
-                context = result.get('context', '')
-                logging.info(f"ID: {result.get('id', 'N/A')}")  # Handle missing ID
-                logging.info(f"Score: {result.get('score', 'N/A')}")
-                doc_text = result.get('text', '')
-                preview_text = (doc_text[:150] + "...") if len(doc_text) > 150 else doc_text
-                logging.info(f"Document: {preview_text}")
-                logging.info(f"Context: {context}")
+                # Combine top-N contexts (can change number in retriever)
+                context = "\n\n---\n\n".join(
+                    f"[{chunk['source']}] {chunk['context']}" for chunk in retrieved_chunks
+                )
+
+                for i, chunk in enumerate(retrieved_chunks):
+                    self.logger.info(f"[{i+1}] ID: {chunk.get('id', 'N/A')} | Score: {chunk.get('score', 'N/A')} | Source: {chunk.get('source', 'Unknown')}")
+                    self.logger.debug(f"Context chunk: {chunk['context'][:200]}...")
+
             self.logger.info("-" * 80)
 
         # Construct structured prompt
-        final_prompt = f"""
-        You are an AI assistant answering user queries using retrieved context.
-        If the context is insufficient, say 'I don't know'. 
+        final_prompt = f"""You are an AI assistant answering user queries using retrieved context.
+If the context is insufficient, say 'I don't know'. 
 
-        Context:
-        {context if context else "No relevant context found."}
+Context:
+{context}
 
-        Question:
-        {query_text}
-        """
+Question:
+{query_text}
+"""
 
-        self.logger.debug(f"Prompt to LLM: {final_prompt}")
+        self.logger.debug(f"Prompt to LLM:\n{final_prompt}")
 
         response = self.llm_client.query(final_prompt)
         self.logger.debug(f"LLM Response: {response}")
 
-        return response
-
-        
+        return response.strip()

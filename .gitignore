@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.env
+*.env
+logs/
+*.log
+.vscode/
+*.DS_Store
+*.egg-info/
+*.sqlite3
+*.db
+data/embeddings/
+data/vectordb/

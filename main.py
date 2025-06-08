@@ -79,23 +79,40 @@ def step02_generate_embeddings(args):
 
 
 def step03_store_vectors(args):
-    """ Step 03: Stores embeddings in a vector database."""
+    """ Step 03: Stores embeddings in a vector database. """
     logging.info("[Step 03] Vector storage started.")
 
-    # delete existing vectordb
-    if Path(config.get("vectordb_directory")).exists():
-        logging.info("deleting existing vectordb")
-        delete_directory(config.get("vectordb_directory"))
+    # Delete existing vectordb
+    vectordb_dir = config.get("vectordb_directory")
+    if Path(vectordb_dir).exists():
+        logging.info("Deleting existing vectordb")
+        delete_directory(vectordb_dir)
 
-    file_list = [args.input_filename] if args.input_filename != "all" else os.listdir(config.get("cleaned_text_directory"))
-    loader = EmbeddingLoader(cleaned_text_file_list=file_list,
-                             cleaned_text_dir=config.get("cleaned_text_directory"),
-                             embeddings_dir=config.get("embeddings_directory"),
-                             vectordb_dir=config.get("vectordb_directory"),
-                             collection_name=config.get("collection_name"))
+    # Determine which files to load
+    embeddings_dir = config.get("embeddings_directory")
+    if args.input_filename is None or args.input_filename == "all":
+        file_list = [
+            f for f in os.listdir(embeddings_dir)
+            if f.endswith("_embeddings.json")
+        ]
+    else:
+        # Ensure filename ends with '_embeddings.json'
+        if args.input_filename.endswith("_embeddings.json"):
+            file_list = [args.input_filename]
+        else:
+            file_list = [f"{Path(args.input_filename).stem}_embeddings.json"]
+
+    # Load embeddings into vector DB
+    loader = EmbeddingLoader(
+        embedding_file_list=file_list,
+        embeddings_dir=embeddings_dir,
+        vectordb_dir=vectordb_dir,
+        collection_name=config.get("collection_name")
+    )
     loader.process_files()
 
     logging.info("[Step 03] Vector storage completed.")
+
 
 
 def step04_retrieve_relevant_chunks(args):
@@ -109,7 +126,7 @@ def step04_retrieve_relevant_chunks(args):
                                  collection_name=config.get("collection_name"),
                                  score_threshold=float(config.get("retriever_min_score_threshold")))
 
-    search_results = retriever.query(args.query_args, top_k=3)
+    search_results = retriever.query(args.query_args, top_k=5)
 
     if not search_results:
         logging.info("*** No relevant documents found.")
@@ -228,5 +245,5 @@ def check_things():
 
 if __name__ == "__main__":
     # print hi
-    # check_things()
-    main()
+    #check_things()
+     main()
